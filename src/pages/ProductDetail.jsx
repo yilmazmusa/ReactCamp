@@ -7,7 +7,7 @@ export default function ProductDetail() {
     
     let { name } = useParams() // BU fonksiyon bize parametreleri obje olarak veriyor.useParams() bize obje döndürüyor
    
-    const [products, setProduct] = useState({}) 
+    const [products, setProduct] = useState({})     
     
     useEffect(() => {
 
