@@ -4,10 +4,13 @@ import { Container, Menu } from 'semantic-ui-react'
 import SignedIn from './SignedIn'
 import SignedOut from './SignedOut'
 import { useHistory } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 
 export default function Navi() {
+
+    const {cartItems} = useSelector(state => state.cart) //useSelector ile  state teki cart ı kullanmak için {cartItems} a atadık
 
     //useState(false) default değeri false yani otantike(giriş yapmadı) değil anlamında.burda yani giriş yaptı ise SignedIn çıkış yaptı ise SignedOut
     //yani giriş yapmadı(false) ise Giriş Yap ve Kayıt Ol menüsünü göster/giriş yaptı ise(true) Çıkış yap menüsünü göster diyoruz
@@ -34,8 +37,8 @@ export default function Navi() {
                     <Menu.Item name='home' />
                     <Menu.Item name='messages' />
 
-                    <Menu.Menu position='right'>
-                        <CartSummary />
+                    <Menu.Menu position='right'> 
+                        {cartItems.length>0 && <CartSummary />} 
                         {isAuthenticated ? <SignedIn signOut={handleSignOut} bişey={"1"}/> 
                         : <SignedOut signIn={handleSignIn} />} 
 

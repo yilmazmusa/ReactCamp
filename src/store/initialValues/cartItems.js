@@ -1,0 +1,1 @@
+export const cartItems= [];         //amacımız cartItems ı her yerde tetikletmek
